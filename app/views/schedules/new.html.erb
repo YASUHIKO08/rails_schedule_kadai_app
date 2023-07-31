@@ -1,0 +1,36 @@
+<section class = add_contents>
+  <nav>
+    <h3>予定の新規追加</h3>
+  </nav>
+  <%= render "shared/error", obj: @schedule %>
+  <div class = table_all>
+    <%= form_with model: @schedule do |schedule| %>
+      <table class = table_record>
+        <th class = db_title_record><%= schedule.label :title,"タイトル" %></th>
+        <td class = edit_db><%= schedule.text_field :title,style: "width: 400px;" %></td>
+      </table>
+      <table class = table_record>
+        <th class = db_title_record><%= schedule.label :start,"開始日" %></th>
+        <td class = edit_db><%= schedule.text_field :start,style: "width: 400px;" %></td>
+      </table>
+      <table class = table_record>
+        <th class = db_title_record><%= schedule.label :end,"終了日" %></th>
+        <td class = edit_db><%= schedule.text_field :end,style: "width: 400px;" %></td>
+      </table>
+      <table class = table_record>
+        <th class = db_title_record><%= schedule.label :all_day,"終日" %></th>
+        <td class = edit_db><%= schedule.check_box :all_day, checked: true, unchecked_value: false %><p>終日の場合はチェックを入れます</p></td>
+      </table>
+      <table class = table_record>
+        <tr>
+        <th class = db_title_record><%= schedule.label :memo,"スケジュールメモ" %></th>
+        <td class = edit_db><%= schedule.text_area:memo,style: "width: 400px;" %></td>
+        </tr>
+      </table> 
+  </div>
+      <div class = edit_bottom>
+        <%= schedule.submit "登        録"%>
+        <%= link_to "キャンセル", :schedules %>
+      </div>
+  <% end %>
+</section>

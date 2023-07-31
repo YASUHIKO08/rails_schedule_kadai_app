@@ -1,0 +1,33 @@
+<section class = add_contents>
+  <div class = schedule_top>
+    <p><%= @schedule.id%></p>
+    <p><%= link_to "編集",[:edit,@schedule] , style: "font-size: 18px;" %></p>
+  </div>
+  <div class = table_all>
+    <table class = table_record>
+      <tr>
+        <th class = db_title>開始日</th>
+          <td class = edit_db><%= @schedule.start %></td>
+      </tr>
+      <tr>
+        <th class = db_title>終了日</th>
+          <td class = edit_db><%= @schedule.end %></td>
+      </tr>
+      <tr>
+        <th class = db_title>終日</th>
+          <td class = edit_db><% if @schedule.all_day == true %>
+          ○
+          <% elsif @schedule.all_day == false %>
+          <% end%>
+          </td>
+      </tr>
+      <tr>
+        <th class = db_title>スケジュールメモ</th>
+          <td class = edit_db><%= @schedule.memo %></td>
+      </tr>
+    </table>
+  </div>
+  <div class = edit_bottom>
+    <p><%= link_to "予定一覧に戻る", :schedules%></p>
+  </div>
+</section>

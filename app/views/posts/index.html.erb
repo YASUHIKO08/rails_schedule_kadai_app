@@ -1,0 +1,48 @@
+<section class = main_contents>
+  <div class = schedule_top>
+    <p>予定一覧</p>
+    <p><%= link_to "新規追加", :schedules_new, style: "font-size: 18px;" %></p>
+  </div>
+    <% if flash[:notice] %>
+    <p class = flash_mesage><%= flash[:notice] %></p>
+    <% end %>
+  <div class = table_all>
+    <table class = home_table>
+      <thead class = db_table>
+        <tr>
+          <th class = db_title>ID</th>
+          <th class = db_title>タイトル</th>
+          <th class = db_title>開始日</th>
+          <th class = db_title>終了日</th>
+          <th class = db_title>終日</th>
+          <th class = db_title>更新日時</th>
+          <th class = db_title></th>
+          <th class = db_title></th>
+          <th class = db_title></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+        <td class = table_date><%= schedule.id %></td>
+        <td class = table_date><%= schedule.title %></td>
+        <td class = table_date><%= schedule.start.strftime("%Y年%m月%d日") %></td>
+        <td class = table_date><%= schedule.end.strftime("%Y年%m月%d日") %></td>
+        <td class = table_date><% if schedule.all_day == true %>
+        ○
+        <% elsif schedule.all_day == false %>
+        <% end%>
+        </td>
+        <td class = table_date><%= schedule.created_at.to_s(:datetime_jp) %></td>
+        <td class = table_date><%= link_to "詳細", schedule %></td>
+        <td class = table_date><%= link_to "編集", [:edit,schedule] %></td>
+        <td class = table_date><%= button_to "削除", schedule,method: :delete, data:{confirm: "本当に削除してよろしいですか？"} %></td>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class = table_bottom>
+    <p>合計<%= Schedule.count(:id) %>件</p>
+    <p>今日の日付:<%= Date.current.strftime('%Y年 %m月 %d日') %></p>
+  </div>
+</section>
