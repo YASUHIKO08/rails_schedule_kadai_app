@@ -36,7 +36,7 @@
         <td class = table_date><%= schedule.created_at.to_s(:datetime_jp) %></td>
         <td class = table_date><%= link_to "詳細", schedule %></td>
         <td class = table_date><%= link_to "編集", [:edit,schedule] %></td>
-        <td class = table_date><%= button_to "削除", schedule,method: :delete, data:{confirm: "本当に削除してよろしいですか？"} %></td>
+        <td class = table_date><%= button_to "削除", schedule,method: :delete, data:{confirm: "削除してよろしいですか？"} %></td>
         <% end %>
       </tbody>
     </table>
