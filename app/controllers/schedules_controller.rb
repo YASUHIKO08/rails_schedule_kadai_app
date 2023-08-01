@@ -11,7 +11,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(params.require(:schedule).permit(:title,:start,:end,:memo,:all_day))
     if @schedule.save
       flash[:notice] = "新規登録が完了しました"
-      redirect_to :posts
+      redirect_to :schedules
     else
       render "new"
     end
@@ -36,7 +36,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    @shedule = Schedule.find(params[:id])
+    @Sshedule = Schedule.find(params[:id])
     @schedule.destroy
     flash[:notice] = "削除が完了しました"
     redirect_to :schedules

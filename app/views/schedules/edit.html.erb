@@ -4,7 +4,7 @@
   </nav>
   <%= render "shared/error", obj: @schedule %>
   <div class = table_all>
-    <%= form_with model: @schedule,local: true do |schedule| %>
+    <%= form_with model: @schedule do |schedule| %>
       <table class = table_record>
         <th class = db_title_record><%= schedule.label :title,"タイトル" %></th>
         <td class = edit_db><%= schedule.text_field :title,style: "width: 400px;" %></td>
@@ -27,8 +27,6 @@
         <td class = edit_db><%= schedule.text_area:memo,style: "width: 400px;" %></td>
         </tr>
       </table> 
-  </div>
-  <div class = edit_bottom>
       <p><%= schedule.submit "更      新" %></p>
       <p><%= link_to "キャンセル", :schedules %></p>
   </div>

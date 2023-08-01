@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      user: ユーザー
+      schedule: ユーザー
     attributes:
-      user:
+      schedule:
         title: タイトル
         start: 開始日
         end: 終了日
